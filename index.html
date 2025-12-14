@@ -2,26 +2,26 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8" />
-<title>Class Projects</title>
+<title>Sınıf Proje Teslim Sistemi</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <div class="card">
-<h1>Class Project Submission</h1>
-<p>Enter your full name</p>
-<input type="text" id="nameInput" placeholder="Full name" />
-<button onclick="enter()">Enter</button>
+<h1>Sınıf Proje Teslim Sistemi</h1>
+<p>Lütfen adınızı ve soyadınızı giriniz</p>
+<input type="text" id="isimInput" placeholder="Ad Soyad" />
+<button onclick="girisYap()">Giriş Yap</button>
 </div>
 
 
 <script>
-function enter() {
-const name = document.getElementById('nameInput').value.trim();
-if (!name) {
-alert('Please enter your name');
+function girisYap() {
+const isim = document.getElementById('isimInput').value.trim();
+if (!isim) {
+alert('Lütfen ad ve soyadınızı giriniz');
 return;
 }
-localStorage.setItem('studentName', name);
+localStorage.setItem('ogrenciIsmi', isim);
 window.location.href = 'upload.html';
 }
 </script>
