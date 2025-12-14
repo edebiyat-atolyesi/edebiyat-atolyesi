@@ -2,27 +2,57 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8" />
-<title>Sınıf Proje Teslim Sistemi</title>
+<title>Sınıf Proje Sistemi</title>
 <link rel="stylesheet" href="style.css" />
+<style>
+.btn-group {
+display: flex;
+gap: 10px;
+margin-top: 15px;
+}
+
+
+.secondary {
+background: #eee;
+color: #333;
+}
+
+
+.secondary:hover {
+background: #ddd;
+}
+</style>
 </head>
 <body>
 <div class="card">
-<h1>Sınıf Proje Teslim Sistemi</h1>
-<p>Lütfen adınızı ve soyadınızı giriniz</p>
-<input type="text" id="isimInput" placeholder="Ad Soyad" />
-<button onclick="girisYap()">Giriş Yap</button>
+<h1>Sınıf Proje Sistemi</h1>
+<p>Lütfen ad ve soyadınızı girin</p>
+
+
+<input type="text" id="nameInput" placeholder="Ad Soyad" />
+
+
+<div class="btn-group">
+<button onclick="girisYap()">Proje Yükle</button>
+<button class="secondary" onclick="sergiyiAc()">Proje Sergisi</button>
+</div>
 </div>
 
 
 <script>
 function girisYap() {
-const isim = document.getElementById('isimInput').value.trim();
-if (!isim) {
-alert('Lütfen ad ve soyadınızı giriniz');
+const ad = document.getElementById('nameInput').value.trim();
+if (!ad) {
+alert('Lütfen adınızı girin');
 return;
 }
-localStorage.setItem('ogrenciIsmi', isim);
+localStorage.setItem('studentName', ad);
 window.location.href = 'upload.html';
+}
+
+
+function sergiyiAc() {
+window.location.href = 'showcase.html';
 }
 </script>
 </body>
