@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Class Projects</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="card">
+<h1>Class Project Submission</h1>
+<p>Enter your full name</p>
+<input type="text" id="nameInput" placeholder="Full name" />
+<button onclick="enter()">Enter</button>
+</div>
 
+
+<script>
+function enter() {
+const name = document.getElementById('nameInput').value.trim();
+if (!name) {
+alert('Please enter your name');
+return;
+}
+localStorage.setItem('studentName', name);
+window.location.href = 'upload.html';
+}
+</script>
+</body>
+</html>
