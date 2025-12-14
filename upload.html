@@ -2,56 +2,56 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8" />
-<title>Upload Project</title>
+<title>Proje Yükle</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <div class="card">
-<h1 id="welcome"></h1>
-<input type="file" id="fileInput" />
-<button onclick="upload()">Upload Project</button>
-<p id="status"></p>
+<h1 id="karsilama"></h1>
+<input type="file" id="dosyaInput" />
+<button onclick="projeYukle()">Projeyi Yükle</button>
+<p id="durum"></p>
 </div>
 
 
 <script>
-const name = localStorage.getItem('studentName');
-if (!name) {
+const ogrenciIsmi = localStorage.getItem('ogrenciIsmi');
+if (!ogrenciIsmi) {
 window.location.href = 'index.html';
 }
 
 
-document.getElementById('welcome').innerText = `Merhaba, ${name}`;
+document.getElementById('karsilama').innerText = `Merhaba, ${ogrenciIsmi}`;
 
 
-function upload() {
-const file = document.getElementById('fileInput').files[0];
-if (!file) {
-alert('Please choose a file');
+function projeYukle() {
+const dosya = document.getElementById('dosyaInput').files[0];
+if (!dosya) {
+alert('Lütfen bir dosya seçiniz');
 return;
 }
 
 
-const status = document.getElementById('status');
-status.innerText = 'Uploading...';
+const durum = document.getElementById('durum');
+durum.innerText = 'Dosya yükleniyor, lütfen bekleyiniz...';
 
 
 const formData = new FormData();
-formData.append('file', file);
+formData.append('file', dosya);
 formData.append('upload_preset', 'o0i7uguu');
-formData.append('folder', `class-projects/${name}`);
+formData.append('folder', `sinif-projeleri/${ogrenciIsmi}`);
 
 
 fetch('https://api.cloudinary.com/v1_1/dspgqocgk/upload', {
 method: 'POST',
 body: formData
 })
-.then(res => res.json())
+.then(yanit => yanit.json())
 .then(() => {
-status.innerText = '✅ Upload successful!';
+durum.innerText = '✅ Proje başarıyla yüklendi.';
 })
 .catch(() => {
-status.innerText = '❌ Upload failed';
+durum.innerText = '❌ Yükleme sırasında bir hata oluştu.';
 });
 }
 </script>
