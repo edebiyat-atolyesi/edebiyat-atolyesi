@@ -1,41 +1,83 @@
-body {
-font-family: Arial, sans-serif;
-background: linear-gradient(135deg, #667eea, #764ba2);
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-margin: 0;
-}
-
-
-.card {
-background: #ffffff;
-padding: 30px;
-border-radius: 12px;
-width: 340px;
-text-align: center;
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-
+* {
 input, button {
 width: 100%;
-padding: 10px;
-margin-top: 10px;
-border-radius: 6px;
-border: 1px solid #ccc;
+padding: 12px;
+margin-top: 12px;
+border-radius: 8px;
+border: none;
+}
+
+
+input {
+background: #2b2b3d;
+color: white;
 }
 
 
 button {
-background: #667eea;
+background: #6c63ff;
 color: white;
-border: none;
+font-weight: bold;
 cursor: pointer;
+transition: transform 0.2s ease, background 0.2s ease;
 }
 
 
 button:hover {
-background: #5563d6;
+background: #5848e5;
+transform: translateY(-2px);
+}
+
+
+.secondary {
+background: #444;
+}
+
+
+.btn-group {
+display: flex;
+gap: 10px;
+margin-top: 15px;
+}
+
+
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 25px;
+margin-top: 30px;
+}
+
+
+.project-card {
+background: #1e1e2f;
+padding: 20px;
+border-radius: 16px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+transition: transform 0.25s ease;
+}
+
+
+.project-card:hover {
+transform: translateY(-6px);
+}
+
+
+.project-card a {
+display: inline-block;
+margin-top: 10px;
+color: #6c63ff;
+text-decoration: none;
+font-weight: bold;
+}
+
+
+.note {
+margin-top: 30px;
+opacity: 0.7;
+}
+
+
+.status {
+margin-top: 10px;
 }
