@@ -4,29 +4,11 @@
 <meta charset="UTF-8" />
 <title>Sınıf Proje Sistemi</title>
 <link rel="stylesheet" href="style.css" />
-<style>
-.btn-group {
-display: flex;
-gap: 10px;
-margin-top: 15px;
-}
-
-
-.secondary {
-background: #eee;
-color: #333;
-}
-
-
-.secondary:hover {
-background: #ddd;
-}
-</style>
 </head>
-<body>
+<body class="fade-in">
 <div class="card">
 <h1>Sınıf Proje Sistemi</h1>
-<p>Lütfen ad ve soyadınızı girin</p>
+<p class="subtitle">Ad ve soyadınızı giriniz</p>
 
 
 <input type="text" id="nameInput" placeholder="Ad Soyad" />
@@ -43,10 +25,10 @@ background: #ddd;
 function girisYap() {
 const ad = document.getElementById('nameInput').value.trim();
 if (!ad) {
-alert('Lütfen adınızı girin');
+alert('Lütfen adınızı giriniz');
 return;
 }
-localStorage.setItem('studentName', ad);
+localStorage.setItem('ogrenciIsmi', ad);
 window.location.href = 'upload.html';
 }
 
