@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Upload Project</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="card">
+<h1 id="welcome"></h1>
+<input type="file" id="fileInput" />
+<button onclick="upload()">Upload Project</button>
+<p id="status"></p>
+</div>
 
+
+<script>
+const name = localStorage.getItem('studentName');
+if (!name) {
+window.location.href = 'index.html';
+}
+
+
+document.getElementById('welcome').innerText = `Hello, ${name}`;
+
+
+function upload() {
+const file = document.getElementById('fileInput').files[0];
+if (!file) {
+alert('Please choose a file');
+return;
+}
+
+
+const status = document.getElementById('status');
+status.innerText = 'Uploading...';
+
+
+const formData = new FormData();
+formData.append('file', file);
+formData.append('upload_preset', 'o0i7uguu');
+formData.append('folder', `class-projects/${name}`);
+
+
+fetch('https://api.cloudinary.com/v1_1/dspgqocgk/upload', {
+method: 'POST',
+body: formData
+})
+.then(res => res.json())
+.then(() => {
+status.innerText = '✅ Upload successful!';
+})
+.catch(() => {
+status.innerText = '❌ Upload failed';
+});
+}
+</script>
+</body>
+</html>
