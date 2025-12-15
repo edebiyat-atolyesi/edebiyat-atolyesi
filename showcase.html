@@ -8,26 +8,31 @@
 
 <body class="fade-in">
 <div class="container">
-  <h1>Sınıf Proje Sergisi</h1>
-  <p class="subtitle">Sınıfımızın öğrenci projeleri</p>
+
+  <header class="page-header">
+    <h1>Sınıf Proje Sergisi</h1>
+    <p class="subtitle">
+      Öğrenci projeleri site içinde görüntülenir, Google Drive’da saklanır.
+    </p>
+  </header>
 
   <div class="grid">
 
-    <!-- SINIF PROJE KLASÖRÜ -->
-    <div class="project-card">
+    <!-- ÖĞRENCİ KARTI -->
+    <div class="project-card" onclick="openPreview(
+      'https://drive.google.com/embeddedfolderview?id=1J-xq9-aH7FSA1QOERxToELrx-kLtRGC7#list',
+      'https://drive.google.com/drive/folders/1J-xq9-aH7FSA1QOERxToELrx-kLtRGC7'
+    )">
       <h3>Sınıf Projeleri</h3>
       <p class="card-sub">Google Drive Klasörü</p>
-      <button onclick="openPreview(
-        'https://drive.google.com/embeddedfolderview?id=1J-xq9-aH7FSA1QOERxToELrx-kLtRGC7#list',
-        'https://drive.google.com/drive/folders/1J-xq9-aH7FSA1QOERxToELrx-kLtRGC7'
-      )">
-        Klasörü Görüntüle
-      </button>
+      <span class="card-action">Görüntüle →</span>
     </div>
 
   </div>
 
-  <p class="note">Projeler Google Drive üzerinden görüntülenir.</p>
+  <p class="note">
+    Projeler sadece görüntüleme amaçlıdır.
+  </p>
 </div>
 
 <!-- PREVIEW MODAL -->
@@ -35,11 +40,13 @@
   <div class="preview-content">
 
     <div class="preview-topbar">
-      <button onclick="toggleFullscreen()">⛶ Tam Ekran</button>
-      <a id="downloadBtn" href="#" target="_blank">
-        ⬇ Drive’da Aç
-      </a>
-      <button class="close-btn" onclick="closePreview()">✕</button>
+      <span class="preview-title">Proje Önizleme</span>
+
+      <div class="preview-actions">
+        <button onclick="toggleFullscreen()">⛶</button>
+        <a id="downloadBtn" href="#" target="_blank">Drive’da Aç</a>
+        <button class="close-btn" onclick="closePreview()">✕</button>
+      </div>
     </div>
 
     <iframe id="previewFrame"></iframe>
@@ -50,18 +57,18 @@
 function openPreview(previewUrl, driveUrl) {
   document.getElementById("previewFrame").src = previewUrl;
   document.getElementById("downloadBtn").href = driveUrl;
-  document.getElementById("previewModal").style.display = "flex";
+  document.getElementById("previewModal").classList.add("show");
 }
 
 function closePreview() {
   document.getElementById("previewFrame").src = "";
-  document.getElementById("previewModal").style.display = "none";
+  document.getElementById("previewModal").classList.remove("show");
 }
 
 function toggleFullscreen() {
-  const elem = document.querySelector(".preview-content");
+  const el = document.querySelector(".preview-content");
   if (!document.fullscreenElement) {
-    elem.requestFullscreen();
+    el.requestFullscreen();
   } else {
     document.exitFullscreen();
   }
