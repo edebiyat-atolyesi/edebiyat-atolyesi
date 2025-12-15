@@ -36,10 +36,10 @@ body {
   }
 }
 
-/* Scroll reveal for cards */
+/* Card reveal */
 .project-card {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(18px);
   animation: reveal 0.7s ease forwards;
 }
 
@@ -66,7 +66,7 @@ body {
 }
 
 /* =========================
-   CARD / CONTAINER
+   CONTAINERS
 ========================= */
 .card,
 .container {
@@ -216,26 +216,6 @@ button:hover {
 }
 
 /* =========================
-   MOBILE IMPROVEMENTS
-========================= */
-@media (max-width: 600px) {
-  body {
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-  }
-
-  button {
-    width: 100%;
-  }
-
-  .btn-group {
-    flex-direction: column;
-  }
-}
-/* =========================
    PREVIEW MODAL
 ========================= */
 .preview-modal {
@@ -260,7 +240,6 @@ button:hover {
   box-shadow: 0 30px 90px rgba(0,0,0,0.9);
 }
 
-/* Top bar */
 .preview-topbar {
   display: flex;
   gap: 10px;
@@ -290,15 +269,26 @@ button:hover {
   background: #ff5c5c;
 }
 
-/* Iframe */
-.preview-content iframe {
-  flex: 1;
-  width: 100%;
-  border: none;
-}
-
-/* Mobile tweaks */
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
   .preview-content {
     height: 92vh;
   }
