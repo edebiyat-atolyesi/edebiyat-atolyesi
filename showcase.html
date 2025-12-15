@@ -36,3 +36,39 @@
 <div id="previewModal" class="preview-modal">
   <div class="preview-content">
     
+    <div class="preview-topbar">
+      <button onclick="toggleFullscreen()">⛶ Tam Ekran</button>
+      <a id="downloadBtn" href="#" download>
+        ⬇ İndir
+      </a>
+      <button class="close-btn" onclick="closePreview()">✕</button>
+    </div>
+
+    <iframe id="previewFrame"></iframe>
+  </div>
+</div>
+
+<script>
+function openPreview(previewUrl, downloadUrl) {
+  document.getElementById("previewFrame").src = previewUrl;
+  document.getElementById("downloadBtn").href = downloadUrl;
+  document.getElementById("previewModal").style.display = "flex";
+}
+
+function closePreview() {
+  document.getElementById("previewFrame").src = "";
+  document.getElementById("previewModal").style.display = "none";
+}
+
+function toggleFullscreen() {
+  const elem = document.querySelector(".preview-content");
+  if (!document.fullscreenElement) {
+    elem.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+</script>
+
+</body>
+</html>
