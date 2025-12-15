@@ -13,28 +13,26 @@
 
   <div class="grid">
 
-    <!-- Öğrenci 1 -->
+    <!-- Öğrenci Kartı -->
     <div class="project-card">
       <h3>Benyamin</h3>
       <p class="card-sub">PDF / Sunum / Dosya</p>
-      <a href="https://drive.google.com/file/d/1BcPPNNVO4pl6vKFs54buW-XLkHYN7-CI/view" target="_blank">
+      <button onclick="openPreview(
+        'https://drive.google.com/file/d/1BcPPNNVO4pl6vKFs54buW-XLkHYN7-CI/preview',
+        'https://drive.google.com/uc?export=download&id=1BcPPNNVO4pl6vKFs54buW-XLkHYN7-CI'
+      )">
         Projeyi Görüntüle
-      </a>
+      </button>
     </div>
 
-    <!-- Öğrenci 2 -->
-    <div class="project-card">
-      <h3>Ayşe</h3>
-      <p class="card-sub">PDF / Sunum / Dosya</p>
-      <a href="#" target="_blank">
-        Projeyi Görüntüle
-      </a>
-    </div>
+    <!-- Yeni öğrenci eklemek için bu kartı kopyala -->
 
-    <!-- Yeni öğrenci eklemek için yukarıdaki kartı kopyala -->
   </div>
 
   <p class="note">Bu sayfa sadece görüntüleme amaçlıdır.</p>
 </div>
-</body>
-</html>
+
+<!-- 🔍 PREVIEW MODAL -->
+<div id="previewModal" class="preview-modal">
+  <div class="preview-content">
+    
