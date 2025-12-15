@@ -15,24 +15,53 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 32px;
 }
 
 /* =========================
    ANIMATIONS
 ========================= */
 .fade-in {
-  animation: fadeIn 0.8s ease forwards;
+  animation: fadeIn 0.9s ease forwards;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Scroll reveal for cards */
+.project-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reveal 0.7s ease forwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.05s; }
+.project-card:nth-child(2) { animation-delay: 0.1s; }
+.project-card:nth-child(3) { animation-delay: 0.15s; }
+.project-card:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
@@ -42,35 +71,37 @@ body {
 .card,
 .container {
   background: linear-gradient(180deg, #1c1c33, #151527);
-  border-radius: 18px;
-  padding: 32px;
-  max-width: 480px;
+  border-radius: 20px;
+  padding: 34px;
   width: 100%;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.6);
+}
+
+.card {
+  max-width: 460px;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 960px;
 }
 
 /* =========================
-   HEADINGS & TEXT
+   TEXT
 ========================= */
 h1 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: 700;
-  margin-bottom: 8px;
-  letter-spacing: 0.3px;
+  margin-bottom: 10px;
 }
 
 .subtitle {
   font-size: 0.95rem;
   opacity: 0.75;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* =========================
@@ -81,11 +112,11 @@ input[type="file"] {
   width: 100%;
   background: #22223a;
   color: #ffffff;
-  border: 1px solid #2f2f55;
-  padding: 12px 14px;
-  border-radius: 10px;
+  border: 1px solid #30305a;
+  padding: 14px;
+  border-radius: 12px;
   margin-bottom: 14px;
-  transition: border 0.2s ease, box-shadow 0.2s ease;
+  font-size: 0.95rem;
 }
 
 input::placeholder {
@@ -95,7 +126,7 @@ input::placeholder {
 input:focus {
   outline: none;
   border-color: #6c63ff;
-  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.25);
 }
 
 /* =========================
@@ -105,21 +136,17 @@ button {
   background: linear-gradient(135deg, #6c63ff, #857dff);
   color: #fff;
   font-weight: 600;
-  padding: 12px 16px;
-  border-radius: 10px;
+  padding: 14px 18px;
+  border-radius: 12px;
   cursor: pointer;
   border: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(108, 99, 255, 0.35);
-}
-
-button:active {
-  transform: translateY(0);
-  opacity: 0.9;
+  box-shadow: 0 0 18px rgba(108, 99, 255, 0.55);
 }
 
 .secondary {
@@ -128,8 +155,7 @@ button:active {
 
 .btn-group {
   display: flex;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 14px;
 }
 
 /* =========================
@@ -138,25 +164,25 @@ button:active {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 26px;
-  margin-top: 30px;
+  gap: 28px;
+  margin-top: 32px;
 }
 
 .project-card {
   background: linear-gradient(180deg, #202040, #191932);
-  padding: 22px;
-  border-radius: 18px;
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.65);
 }
 
 .project-card h3 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin-bottom: 6px;
 }
 
@@ -168,28 +194,44 @@ button:active {
 
 .project-card a {
   display: inline-block;
-  margin-top: 8px;
+  margin-top: 10px;
   color: #6c63ff;
   text-decoration: none;
   font-weight: 600;
-  transition: opacity 0.2s ease;
-}
-
-.project-card a:hover {
-  opacity: 0.8;
 }
 
 /* =========================
    STATUS & NOTES
 ========================= */
+.status {
+  margin-top: 14px;
+  font-weight: 500;
+}
+
 .note {
-  margin-top: 32px;
+  margin-top: 36px;
   text-align: center;
   opacity: 0.65;
   font-size: 0.9rem;
 }
 
-.status {
-  margin-top: 12px;
-  font-weight: 500;
+/* =========================
+   MOBILE IMPROVEMENTS
+========================= */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
 }
