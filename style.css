@@ -235,3 +235,75 @@ button:hover {
     flex-direction: column;
   }
 }
+/* =========================
+   PREVIEW MODAL
+========================= */
+.preview-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.preview-content {
+  background: #111122;
+  width: 92%;
+  max-width: 1000px;
+  height: 88vh;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.9);
+}
+
+/* Top bar */
+.preview-topbar {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: #1a1a2e;
+  justify-content: flex-end;
+}
+
+.preview-topbar button,
+.preview-topbar a {
+  background: #2f2f45;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.preview-topbar button:hover,
+.preview-topbar a:hover {
+  opacity: 0.85;
+}
+
+.close-btn {
+  background: #ff5c5c;
+}
+
+/* Iframe */
+.preview-content iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .preview-content {
+    height: 92vh;
+  }
+
+  .preview-topbar {
+    justify-content: space-between;
+  }
+}
