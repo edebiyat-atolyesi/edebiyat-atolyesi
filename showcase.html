@@ -13,33 +13,31 @@
 
   <div class="grid">
 
-    <!-- Öğrenci Kartı -->
+    <!-- SINIF PROJE KLASÖRÜ -->
     <div class="project-card">
-      <h3>Benyamin</h3>
-      <p class="card-sub">PDF / Sunum / Dosya</p>
+      <h3>Sınıf Projeleri</h3>
+      <p class="card-sub">Google Drive Klasörü</p>
       <button onclick="openPreview(
-        'https://drive.google.com/file/d/1BcPPNNVO4pl6vKFs54buW-XLkHYN7-CI/preview',
-        'https://drive.google.com/uc?export=download&id=1BcPPNNVO4pl6vKFs54buW-XLkHYN7-CI'
+        'https://drive.google.com/embeddedfolderview?id=1J-xq9-aH7FSA1QOERxToELrx-kLtRGC7#list',
+        'https://drive.google.com/drive/folders/1J-xq9-aH7FSA1QOERxToELrx-kLtRGC7'
       )">
-        Projeyi Görüntüle
+        Klasörü Görüntüle
       </button>
     </div>
 
-    <!-- Yeni öğrenci eklemek için bu kartı kopyala -->
-
   </div>
 
-  <p class="note">Bu sayfa sadece görüntüleme amaçlıdır.</p>
+  <p class="note">Projeler Google Drive üzerinden görüntülenir.</p>
 </div>
 
-<!-- 🔍 PREVIEW MODAL -->
+<!-- PREVIEW MODAL -->
 <div id="previewModal" class="preview-modal">
   <div class="preview-content">
-    
+
     <div class="preview-topbar">
       <button onclick="toggleFullscreen()">⛶ Tam Ekran</button>
-      <a id="downloadBtn" href="#" download>
-        ⬇ İndir
+      <a id="downloadBtn" href="#" target="_blank">
+        ⬇ Drive’da Aç
       </a>
       <button class="close-btn" onclick="closePreview()">✕</button>
     </div>
@@ -49,9 +47,9 @@
 </div>
 
 <script>
-function openPreview(previewUrl, downloadUrl) {
+function openPreview(previewUrl, driveUrl) {
   document.getElementById("previewFrame").src = previewUrl;
-  document.getElementById("downloadBtn").href = downloadUrl;
+  document.getElementById("downloadBtn").href = driveUrl;
   document.getElementById("previewModal").style.display = "flex";
 }
 
