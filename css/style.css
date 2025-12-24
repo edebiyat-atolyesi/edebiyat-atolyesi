@@ -294,3 +294,24 @@ button:hover {
     transition: none !important;
   }
 }
+
+/* =========================
+   SHOWCASE CARD TOGGLE FIX
+   (ADD AT END OF FILE)
+========================= */
+
+.project-card {
+  cursor: pointer;
+}
+
+.project-image {
+  display: none;
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 14px;
+}
+
+.project-card.open .project-image {
+  display: block;
+}
+
