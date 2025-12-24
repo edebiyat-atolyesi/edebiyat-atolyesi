@@ -12,19 +12,58 @@
   <header class="page-header">
     <h1>Sınıf Proje Sergisi</h1>
     <p class="subtitle">
-      Öğrenci projeleri site içinde görüntülenir, Google Drive’da saklanır.
+      Öğrenci projeleri site içinde görüntülenir.
     </p>
   </header>
 
   <div class="grid">
 
-    <!-- ÖĞRENCİ KARTI -->
-    <div class="project-card" onclick="openPreview(
-      'https://drive.google.com/embeddedfolderview?id=1J-xq9-aH7FSA1QOERxToELrx-kLtRGC7#list',
-      'https://drive.google.com/drive/folders/1J-xq9-aH7FSA1QOERxToELrx-kLtRGC7'
-    )">
-      <h3>Sınıf Projeleri</h3>
-      <p class="card-sub">Google Drive Klasörü</p>
+    <!-- ADA SU VURAN -->
+    <div class="project-card" onclick="openPreview('assets/ada-su-vuran.png','Ada Su Vuran')">
+      <img src="assets/ada-su-vuran.png" loading="lazy">
+      <h3>Ada Su Vuran</h3>
+      <span class="card-action">Görüntüle →</span>
+    </div>
+
+    <!-- ALKAN -->
+    <div class="project-card" onclick="openPreview('assets/alkan.png','Alkan')">
+      <img src="assets/alkan.png" loading="lazy">
+      <h3>Alkan</h3>
+      <span class="card-action">Görüntüle →</span>
+    </div>
+
+    <!-- BUSENAZ UĞRAŞİCİ -->
+    <div class="project-card" onclick="openPreview('assets/busenaz-ugrasici.png','Busenaz UĞRAŞİCİ')">
+      <img src="assets/busenaz-ugrasici.png" loading="lazy">
+      <h3>Busenaz UĞRAŞİCİ</h3>
+      <span class="card-action">Görüntüle →</span>
+    </div>
+
+    <!-- ECRIN AKDAL -->
+    <div class="project-card" onclick="openPreview('assets/ecrin-akdal.png','Ecrin Akdal')">
+      <img src="assets/ecrin-akdal.png" loading="lazy">
+      <h3>Ecrin Akdal</h3>
+      <span class="card-action">Görüntüle →</span>
+    </div>
+
+    <!-- ELIF ÇOBAN -->
+    <div class="project-card" onclick="openPreview('assets/elif-coban.png','Elif Çoban')">
+      <img src="assets/elif-coban.png" loading="lazy">
+      <h3>Elif Çoban</h3>
+      <span class="card-action">Görüntüle →</span>
+    </div>
+
+    <!-- HALIT BUĞRA ÇELENK -->
+    <div class="project-card" onclick="openPreview('assets/halit-bugra-celenk.png','Halit Buğra Çelenk')">
+      <img src="assets/halit-bugra-celenk.png" loading="lazy">
+      <h3>Halit Buğra Çelenk</h3>
+      <span class="card-action">Görüntüle →</span>
+    </div>
+
+    <!-- BENYAMIN AFRASHTEH -->
+    <div class="project-card" onclick="openPreview('assets/benyamin-afrashteh.png','Benyamin Afrashteh')">
+      <img src="assets/benyamin-afrashteh.png" loading="lazy">
+      <h3>Benyamin Afrashteh</h3>
       <span class="card-action">Görüntüle →</span>
     </div>
 
@@ -40,23 +79,22 @@
   <div class="preview-content">
 
     <div class="preview-topbar">
-      <span class="preview-title">Proje Ön İzleme</span>
+      <span class="preview-title" id="previewTitle">Proje Ön İzleme</span>
 
       <div class="preview-actions">
         <button onclick="toggleFullscreen()">⛶</button>
-        <a id="downloadBtn" href="#" target="_blank">Drive’da Aç</a>
         <button class="close-btn" onclick="closePreview()">✕</button>
       </div>
     </div>
 
-    <iframe id="previewFrame"></iframe>
+    <img id="previewFrame" />
   </div>
 </div>
 
 <script>
-function openPreview(previewUrl, driveUrl) {
-  document.getElementById("previewFrame").src = previewUrl;
-  document.getElementById("downloadBtn").href = driveUrl;
+function openPreview(imageSrc, title) {
+  document.getElementById("previewFrame").src = imageSrc;
+  document.getElementById("previewTitle").textContent = title;
   document.getElementById("previewModal").classList.add("show");
 }
 
