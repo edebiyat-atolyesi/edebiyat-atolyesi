@@ -21,49 +21,49 @@
     <div class="project-card" onclick="toggleCard(this)">
       <h3>Ada Su Vuran</h3>
       <div class="image-wrapper">
-        <img src="assets/ada-su-vuran.png">
+        <img src="assets/ada-su-vuran.png" onclick="toggleFullscreen(event, this)">
       </div>
     </div>
 
     <div class="project-card" onclick="toggleCard(this)">
       <h3>Alkan</h3>
       <div class="image-wrapper">
-        <img src="assets/alkan.png">
+        <img src="assets/alkan.png" onclick="toggleFullscreen(event, this)">
       </div>
     </div>
 
     <div class="project-card" onclick="toggleCard(this)">
       <h3>Busenaz UĞRAŞİCİ</h3>
       <div class="image-wrapper">
-        <img src="assets/busenaz-ugrasici.png">
+        <img src="assets/busenaz-ugrasici.png" onclick="toggleFullscreen(event, this)">
       </div>
     </div>
 
     <div class="project-card" onclick="toggleCard(this)">
       <h3>Ecrin Akdal</h3>
       <div class="image-wrapper">
-        <img src="assets/ecrin-akdal.png">
+        <img src="assets/ecrin-akdal.png" onclick="toggleFullscreen(event, this)">
       </div>
     </div>
 
     <div class="project-card" onclick="toggleCard(this)">
       <h3>Elif Çoban</h3>
       <div class="image-wrapper">
-        <img src="assets/elif-coban.png">
+        <img src="assets/elif-coban.png" onclick="toggleFullscreen(event, this)">
       </div>
     </div>
 
     <div class="project-card" onclick="toggleCard(this)">
       <h3>Halit Buğra Çelenk</h3>
       <div class="image-wrapper">
-        <img src="assets/halit-bugra-celenk.png">
+        <img src="assets/halit-bugra-celenk.png" onclick="toggleFullscreen(event, this)">
       </div>
     </div>
 
     <div class="project-card" onclick="toggleCard(this)">
       <h3>Benyamin Afrashteh</h3>
       <div class="image-wrapper">
-        <img src="assets/benyamin-afrashteh.png">
+        <img src="assets/benyamin-afrashteh.png" onclick="toggleFullscreen(event, this)">
       </div>
     </div>
 
@@ -77,8 +77,16 @@ function toggleCard(card) {
   });
   card.classList.toggle("open");
 }
+
+function toggleFullscreen(e, img) {
+  e.stopPropagation(); // prevents card from closing
+  if (!document.fullscreenElement) {
+    img.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
 </script>
 
 </body>
 </html>
-
