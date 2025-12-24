@@ -296,22 +296,30 @@ button:hover {
 }
 
 /* =========================
-   SHOWCASE CARD TOGGLE FIX
-   (ADD AT END OF FILE)
+   FORCE HIDE SHOWCASE IMAGES
+   (ADD AT VERY END)
 ========================= */
 
 .project-card {
   cursor: pointer;
 }
 
-.project-image {
-  display: none;
+/* wrapper hides image completely */
+.image-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+/* image styling */
+.image-wrapper img {
   width: 100%;
+  display: block;
   margin-top: 16px;
   border-radius: 14px;
 }
 
-.project-card.open .project-image {
-  display: block;
+/* ONLY show when card is clicked */
+.project-card.open .image-wrapper {
+  max-height: 2000px; /* large enough for any image */
 }
-
