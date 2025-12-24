@@ -18,61 +18,57 @@
 
   <div class="grid">
 
-    <!-- ADA SU VURAN -->
-    <div class="project-card">
-      <h3 onclick="toggleImage(this)">Ada Su Vuran</h3>
+    <div class="project-card" onclick="toggleCard(this)">
+      <h3>Ada Su Vuran</h3>
       <img src="assets/ada-su-vuran.png" class="project-image">
     </div>
 
-    <!-- ALKAN -->
-    <div class="project-card">
-      <h3 onclick="toggleImage(this)">Alkan</h3>
+    <div class="project-card" onclick="toggleCard(this)">
+      <h3>Alkan</h3>
       <img src="assets/alkan.png" class="project-image">
     </div>
 
-    <!-- BUSENAZ UĞRAŞİCİ -->
-    <div class="project-card">
-      <h3 onclick="toggleImage(this)">Busenaz UĞRAŞİCİ</h3>
+    <div class="project-card" onclick="toggleCard(this)">
+      <h3>Busenaz UĞRAŞİCİ</h3>
       <img src="assets/busenaz-ugrasici.png" class="project-image">
     </div>
 
-    <!-- ECRIN AKDAL -->
-    <div class="project-card">
-      <h3 onclick="toggleImage(this)">Ecrin Akdal</h3>
+    <div class="project-card" onclick="toggleCard(this)">
+      <h3>Ecrin Akdal</h3>
       <img src="assets/ecrin-akdal.png" class="project-image">
     </div>
 
-    <!-- ELIF ÇOBAN -->
-    <div class="project-card">
-      <h3 onclick="toggleImage(this)">Elif Çoban</h3>
+    <div class="project-card" onclick="toggleCard(this)">
+      <h3>Elif Çoban</h3>
       <img src="assets/elif-coban.png" class="project-image">
     </div>
 
-    <!-- HALIT BUĞRA ÇELENK -->
-    <div class="project-card">
-      <h3 onclick="toggleImage(this)">Halit Buğra Çelenk</h3>
+    <div class="project-card" onclick="toggleCard(this)">
+      <h3>Halit Buğra Çelenk</h3>
       <img src="assets/halit-bugra-celenk.png" class="project-image">
     </div>
 
-    <!-- BENYAMIN AFRASHTEH -->
-    <div class="project-card">
-      <h3 onclick="toggleImage(this)">Benyamin Afrashteh</h3>
+    <div class="project-card" onclick="toggleCard(this)">
+      <h3>Benyamin Afrashteh</h3>
       <img src="assets/benyamin-afrashteh.png" class="project-image">
     </div>
 
   </div>
 
   <p class="note">
-    Öğrenci adına tıklayarak proje görüntülenir.
+    Kartın üzerine tıklayarak projeyi görüntüleyebilirsiniz.
   </p>
 </div>
 
 <script>
-function toggleImage(titleEl) {
-  const card = titleEl.parentElement;
-  const img = card.querySelector(".project-image");
+function toggleCard(card) {
+  // close other open cards
+  document.querySelectorAll(".project-card").forEach(c => {
+    if (c !== card) c.classList.remove("open");
+  });
 
-  img.classList.toggle("show");
+  // toggle this card
+  card.classList.toggle("open");
 }
 </script>
 
