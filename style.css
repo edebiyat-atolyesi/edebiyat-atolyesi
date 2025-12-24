@@ -296,7 +296,7 @@ button:hover {
 }
 
 /* =========================
-   FORCE HIDE SHOWCASE IMAGES
+   SHOWCASE FINAL FIXES
    (ADD AT VERY END)
 ========================= */
 
@@ -304,22 +304,28 @@ button:hover {
   cursor: pointer;
 }
 
-/* wrapper hides image completely */
+/* calm, smoother open animation */
 .image-wrapper {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease;
+  transition: max-height 0.55s ease; /* slowed slightly */
 }
 
-/* image styling */
 .image-wrapper img {
   width: 100%;
   display: block;
   margin-top: 16px;
   border-radius: 14px;
+  cursor: zoom-in;
 }
 
-/* ONLY show when card is clicked */
+/* open state */
 .project-card.open .image-wrapper {
-  max-height: 2000px; /* large enough for any image */
+  max-height: 2200px;
+}
+
+/* fullscreen cursor feedback */
+.image-wrapper img:fullscreen {
+  cursor: zoom-out;
+  background: #000;
 }
