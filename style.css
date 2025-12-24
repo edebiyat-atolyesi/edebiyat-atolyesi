@@ -329,3 +329,30 @@ button:hover {
   cursor: zoom-out;
   background: #000;
 }
+
+/* =========================
+   MOBILE FULLSCREEN FALLBACK
+   (ADD AT VERY END)
+========================= */
+
+@media (max-width: 768px) {
+  .project-card.open .image-wrapper {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    max-height: none;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-card.open .image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    border-radius: 0;
+    cursor: zoom-out;
+  }
+}
