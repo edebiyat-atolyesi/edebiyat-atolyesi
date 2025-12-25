@@ -308,7 +308,7 @@ button:hover {
 .image-wrapper {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.75s ease; /* slowed slightly */
+  transition: max-height 0.95s ease; /* slowed slightly */
 }
 
 .image-wrapper img {
